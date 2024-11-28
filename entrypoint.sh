@@ -89,7 +89,8 @@ for PULL_REQUEST in $PULL_REQUESTS; do
         "$URI/repos/$GITHUB_REPOSITORY/issues/$PULL_REQUEST_NUMBER/labels/$REMOVE_LABEL"
     else
       echo "Proceeding, This pull request doesn't have the label to remove: $REMOVE_LABEL"
-
+    fi
+    
   if [[ $SKIP_DRAFTS != "false" ]]; then
     IS_A_DRAFT=$(echo "$PULL_REQUEST_INFO" | jq --raw-output '.draft')
     if [[ $IS_A_DRAFT == "true" ]]; then
